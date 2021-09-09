@@ -33,8 +33,6 @@ class BookController extends AbstractController
      */
     public function new(Request $request, UserInterface $user, BookRepository $books): Response
     {
-        
-        
         $newBook = new Book();
 
         $booksList =  $books->findAll();
@@ -42,27 +40,29 @@ class BookController extends AbstractController
         $userLibraryISBN = [];
         $bookTestISBN = [];
 
-        foreach($userLibrary as $key => $bookTestLibrary){
+        
+        // On récupère les isbn présents en base de données
+        foreach($booksList as $key => $bookTest){
 
-
-            $userLibraryISBN [] =  $bookTestLibrary->getIsbn();
+            $bookTestISBN [] =  $bookTest->getIsbn();
 
         }
 
-        foreach($booksList as $key => $bookTest){
+        // On récupère les isbn des livres présents dans la librairie du user
+        foreach($userLibrary as $key => $bookTestLibrary){
 
-
-            $bookTestISBN [] =  $bookTest->getIsbn();
+            $userLibraryISBN [] =  $bookTestLibrary->getIsbn();
 
         }
     
         dump($bookTestISBN);
         dump($userLibraryISBN);
-               
+           
+        // on créé un formulaire pour saisir un livre (titre ou nom de l'auteur ou isbn)
         $form = $this->createForm(BookType::class, $newBook, ['attr' => ['class' => 'addBookForm w--900 bck--alt br--15 p--2']]);
         $form->handleRequest($request);
 
-   
+        // on soumet le formulaire et on vérifie ce qui a été saisi
         if ($form->isSubmitted()) {
 
             $requestParams = $request->request->all();
@@ -72,19 +72,19 @@ class BookController extends AbstractController
     
             $requestBookISBN = $requestParams['book']['isbn'];
 
-             
+           //On vérifie si l'isbn du livre ajouté est déjà présent dans la librairie du user 
            if(in_array($requestBookISBN, $bookTestISBN)){
 
                     $book = $books->findOneBy([
                         'isbn' =>$requestBookISBN,
                     ]);
                     dump($book);
-
+                    // Si oui on le lui dit
                     if(in_array($requestBookISBN, $userLibraryISBN)){
 
                         $this->addFlash('error', 'Vous avez déjà ce livre dans votre bibliothèque !');
                     }else{
-
+                        // Si non on l'ajoute dans sa librairie
                         $book->addUser($user);
                         $entityManager = $this->getDoctrine()->getManager();
                         $entityManager->persist($user);
@@ -93,7 +93,7 @@ class BookController extends AbstractController
                         $this->addFlash('success', 'Ajout du livre réussi ! Vous pouvez dès à présent le retrouver dans votre bibliothèque ou faire une nouvelle recherche.');
                     }      
            }else{
-
+                // On vérifie la date de publication renseignée par l'API Google
                 if(strlen($publicationDateString) == 10){
 
                     $publicationDate = \DateTime::createFromFormat('d-m-Y', $publicationDateString, null);
@@ -103,6 +103,7 @@ class BookController extends AbstractController
                     $publicationDate = \DateTime::createFromFormat('Y', $publicationDateString, null);
                 } 
 
+                // On ajoute le livre en base de données s'il ne l'est pas déjà
                 $newBook->setPublicationDate($publicationDate);
                 $newBook->setCreatedAt($newBook->getCreatedAt());
                 $newBook->addUser($user);
@@ -112,10 +113,7 @@ class BookController extends AbstractController
 
                 $this->addFlash('success', 'Ajout du livre réussi ! Vous pouvez dès à présent le retrouver dans votre bibliothèque ou faire une nouvelle recherche.');
             }
-           
           
-          
-           
         }
 
         return $this->render('book/new.html.twig', [
