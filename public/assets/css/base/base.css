@@ -1,0 +1,109 @@
+/* =========================================================================
+ * BASE
+ * ========================================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Mr+Dafoe&display=swap");
+
+/* HTML
+ * ------------------------------------------------------------------------- */
+*::after,
+*::before,
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* BODY
+   * ------------------------------------------------------------------------- */
+
+body {
+  margin: 0;
+  min-width: var(--dom--min-width);
+  max-height: 100vh;
+  max-width: 100vw;
+  font-family: "Poppins", sans-serif;
+  position: relative;
+}
+
+header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
+footer {
+  margin-top: 6rem;
+}
+
+h1 {
+  font-family: "Playfair Display", sans-serif;
+  padding: 1rem;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: var(--font--size--up-scaled-6);
+  color: var(--color--text--white);
+}
+
+h2 {
+  font-size: var(--font--size--up-scaled-4);
+  font-weight: bold;
+}
+
+h3 {
+  font-size: var(--font--size--up-scaled-2);
+}
+
+img {
+  max-height: 100vh;
+  object-fit: cover;
+}
+
+a {
+  color: var(--color--text--light);
+}
+
+strong {
+  font-weight: bold;
+}
+
+.t--ac {
+  text-align: center;
+}
+
+.table-book-index, .table-user-index{
+  table-layout: fixed;
+}
+
+.table-book-index td {
+  height: 15%;
+  width: 480px;
+  padding: 2px;
+  text-align: center;
+}
+.table-book-index img {
+  display: inline-block;
+  margin-top: 2rem;
+  margin-bottom: -5rem;
+}
+
+.table-user-index td {
+  height: 15%;
+  width: 480px;
+  padding: 2px;
+  text-align: center;
+}
+.table-user-index img{
+  height: 20vh;
+  object-fit: contain;
+  display: inline-block;
+  margin-top: 2rem;
+  margin-bottom: -5rem;
+}

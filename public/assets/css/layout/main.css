@@ -1,0 +1,18 @@
+main{
+    width: 100%;
+    min-height: 67vh;
+    margin-top: 20rem;
+    z-index: -1;
+}
+
+#homebase-main{
+    margin-top: 20rem;
+    min-height: 67vh;
+}
+
+@media(max-width:540px){
+    main{
+        margin-top: -10rem;
+    }
+}
+

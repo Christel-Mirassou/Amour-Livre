@@ -1,0 +1,20 @@
+.article-bookpage{
+    padding: 1.5rem;
+    background-color: var(--color--theme--primary);
+    border-radius: 15px;
+    box-shadow: 2px 2px 10px var(--color--theme--dark);
+    color: var(--color--white);
+    line-height: 2rem;
+}
+
+.article-bookpage h1{
+    padding: 0 0 1rem 0;
+}
+
+.article-bookpage span{
+    font-weight: 900;
+    padding-right: 1rem;
+    color: var(--color--text--dark);
+}
+
+

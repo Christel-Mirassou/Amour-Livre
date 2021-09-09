@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Amour Livre - Livre : {{ book.title }}{% endblock %}
+
+{% block body %}
+
+<section id="section-transparent" class="d--flex jc--c w--100 m--1">
+    <article class="card hgt--card w-600 d--flex fd--c m--left" style="width: 20rem;">
+        <div class="card-body">
+            <img src="{{ book.thumbnail }}" class="card-img-top hgt--img" alt="{{ book.title }}" />
+        </div>
+    </article>
+
+    <article class="article-bookpage w--950 d--flex fd--c m--left">
+        <div class="d--flex fd--c">
+            <h1><span>Titre :  </span> {{book.title}}</h1>
+            <p><span>Auteur(s) :  </span> {{book.author}}<p>    
+            <p><span>Editeur :  </span> {{book.publisher}}</p>
+            <p><span>Publié le :  </span> {{ book.publicationDate ? book.publicationDate|date('Y-m-d') : '' }}</p>
+            <p><span>Langue :  </span> {{book.language}}</p>
+            {% for genre in book.genre %}
+                <p><span>Genre(s) :  </span> {{genre.name}}</p>
+            {% endfor %}
+            <p><span>ISBN :  </span> {{book.isbn}}</p>
+            <p><span>Résumé :  </span> {{book.synopsis}}</p>
+        </div>
+    </article>
+</section>
+
+<section class="w--1500 bck--alt br--15 p--2 p--relative">
+    <div class="section-header d--flex fd--c ai--c mb--2">
+        <h2 class="text-center mb--2">Commentaires</h2>
+        <a class="btn btn-primary w--mob-70 w--330 text-center" href="#" role="button">Ajouter un commentaire</a>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,32 @@
+/* COLOR
+ * ------------------------------------------------------------------------- */
+
+ .bck--primary{
+     background-color: var(--color--theme--primary);
+ }
+
+ .bck--admin{
+    background-color: var(--color--theme--admin);
+ }
+
+ .bck--alt{
+     background-color: var(--color--theme--alt);
+ }
+
+ .bck--dark{
+    background-color: rgba(0,0,0,0.50);
+}
+
+
+ /*** BOX-SHADOW ***/
+
+ .box-shadow{
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+ }
+
+
+ @media (max-width: 992px){
+    .bck--mob-dark{
+        background-color: rgba(0,0,0,0.8);
+    }
+}

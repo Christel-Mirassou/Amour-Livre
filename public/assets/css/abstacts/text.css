@@ -1,0 +1,96 @@
+/* COLOR
+ * ------------------------------------------------------------------------- */
+
+ .text-color-dark{
+    color : var(--color--text--dark);
+  }
+
+  .text-color-light{
+    color : var(--color--text--light);
+  }
+
+  .text-color-alt{
+    color : var(--color--text--alt);
+  }
+
+  .text-color-flash{
+    color: var(--color--text--flash);
+  }
+
+  .text-color-white{
+    color : var(--color--text--white);
+  }
+
+  .text-color-primary{
+    color : var(--color--text--primary)
+  }
+
+/* WEIGHT
+ * ------------------------------------------------------------------------- */
+
+ .fw--b{
+   font-weight: bold;
+ }
+
+
+/* SIZE
+ * ------------------------------------------------------------------------- */
+
+ .fsize-1{
+   font-size: var(--font--size--standard);
+ }
+
+ .fsize-1d2{
+  font-size: var( --font--size--up-scaled-2);
+}
+
+ .fsize-2{
+   font-size: var(--font--size--up-scaled-6);
+ }
+
+ .fsize-3{
+  font-size: var(--font--size--up-scaled-8);
+}
+
+ .fsize-4{
+   font-size: var(--font--size--up-scaled-10);
+  }
+
+   /* LINE-HEIGHT
+ * ------------------------------------------------------------------------- */
+
+ .lh--1d5{
+   line-height: 1.5rem;
+ }
+
+ .lh--5{
+   line-height: 5rem;
+ }
+
+ .lh--3{
+  line-height: 3rem;
+}
+
+
+   /* LETTRINE
+ * ------------------------------------------------------------------------- */
+.ma-lettrine{
+  font-family: 'Great Vibes', cursive;
+  float: left; 
+  text-shadow:3px 3px 3px silver;  
+  font-size: 4em;  
+  line-height: 80%; 
+  margin:-.1em 0px;
+  padding-right: .1em
+}
+
+.mdp-forgot:hover{
+  color: var(--color--text--primary);
+}
+
+   /* DECORATION
+ * ------------------------------------------------------------------------- */
+
+.text-deco-none{
+  text-decoration: none;
+}

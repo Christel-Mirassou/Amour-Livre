@@ -1,0 +1,42 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}Amour Livre - Gestion genres
+{% endblock %}
+
+{% block body %}
+	<section class="section-admin w--900 p--2 bck--admin br--15 pb--1">
+		<h1 class="text-center pb--4 fsize-3 mb--1">Gestion des genres</h1>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th class="text-color-dark fw--b text-center">Id</th>
+					<th class="text-color-dark fw--b text-center">Nom</th>
+					<th class="text-color-dark fw--b text-center">Créé le</th>
+					<th class="text-color-dark fw--b text-center">Mis à jour le</th>
+					<th class="text-color-dark fw--b text-center">Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for genre in genres %}
+					<tr>
+						<td>{{ genre.id }}</td>
+						<td>{{ genre.name }}</td>
+						<td>{{ genre.createdAt ? genre.createdAt|date('Y-m-d') : '' }}</td>
+						<td>{{ genre.updatedAt ? genre.updatedAt|date('Y-m-d') : '' }}</td>
+						<td>
+							<a class="btn btn-secondary w--mob-70 w--200 m--1 text-center" href="{{ path('genre_show', {'id': genre.id}) }}">montrer</a>
+							{{ include('genre/_delete_form.html.twig') }}
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="5">Pas d'entrée</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+		<a href="{{ path('genre_new') }}" class="text-color-dark fw--b px--05-y1 bck--primary br--15">Créer un nouveau genre</a>
+	</section>
+{% endblock %}

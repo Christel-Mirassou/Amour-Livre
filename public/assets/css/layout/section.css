@@ -1,0 +1,96 @@
+.section-footer {
+  width: 80%;
+  margin: auto;
+  border-radius: 15px;
+  padding: 5rem;
+  background-color: var(--color--theme--secondary);
+  box-shadow: 2px 2px 10px var(--color--theme--dark);
+  position: relative;
+}
+
+.section-footer::-webkit-scrollbar {
+  display: none;
+}
+
+.section-connexion {
+  width: 80%;
+  margin: auto;
+  border-radius: 15px;
+  padding: 5rem;
+  background-color: var(--color--theme--secondary);
+  box-shadow: 2px 2px 10px var(--color--theme--dark);
+  position: relative;
+}
+
+.section-admin a {
+  text-decoration: none;
+}
+
+#section-admin__div a:hover {
+  color: var(--color--text--white);
+}
+
+.section-contact, .section-matching{
+  margin: auto;
+  border-radius: 15px;
+  padding: 5rem;
+  background-color: var(--color--theme--alt);
+  box-shadow: 0 0 10px var(--color--theme--dark);
+  position: relative;
+}
+
+.section-contact h1{
+  font-weight: bold;
+  font-size: var(--font--size--up-scaled-8);
+  color: var(--color--text--dark);
+}
+
+.section-contact fieldset {
+  display: none;
+}
+
+#section-transparent {
+  background-color: transparent;
+  margin: auto;
+  border-radius: 15px;
+  padding: 5rem;
+  box-shadow: 2px 2px 10px var(--color--theme--black);
+  position: relative;
+}
+
+.section-admin .table {
+  border-collapse: separate;
+  border-spacing: 0 1rem;
+}
+.section-admin td {
+  border: solid var(--color--theme--dark) 1px;
+}
+#section-accueil {
+  background-color: transparent;
+}
+#section-pourquoi-nous,
+#section-hesitation {
+  background-color: var(--color--background--white);
+}
+
+#section-pourquoi-nous h2 {
+  padding: 2rem 0;
+  color: var(--color--text--dark);
+  font-size: var(--font--size--up-scaled-6);
+}
+
+#section-hesitation h2 {
+  padding: 2rem 0;
+  color: var(--color--text--dark);
+  font-size: var(--font--size--up-scaled-6);
+}
+
+#section-hesitation p{
+    font-size: var(--font--size--up-scaled-3);
+}
+
+.section-footer2 {
+  border-radius: 15px;
+  padding: 5rem;
+  text-align: justify;
+}

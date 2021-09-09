@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Amour Livre - Nouveau Genre{% endblock %}
+
+{% block body %}
+    <h1 class="text-center text-color-dark fw--b fsize-3 mb--1">Créer un nouveau Genre</h1>
+
+    {{ include('genre/_form.html.twig') }}
+
+    {# <a href="{{ path('genre_index') }}">back to list</a> #}
+{% endblock %}
+

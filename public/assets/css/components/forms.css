@@ -1,0 +1,115 @@
+
+
+meter[value="1"]::-webkit-meter-optimum-value { background: red; }
+meter[value="2"]::-webkit-meter-optimum-value { background: yellow; }
+meter[value="3"]::-webkit-meter-optimum-value { background: orange; }
+meter[value="4"]::-webkit-meter-optimum-value { background: orange; }
+meter[value="5"]::-webkit-meter-optimum-value { background: green; }
+
+.form-group{
+    margin : 1rem 1rem 0 1rem;
+}
+
+label,
+.col-form-label{
+    margin-bottom: 1rem;
+    color: var(--color--text--dark);
+    font-weight: bold;
+}
+
+.col-form-label{
+    padding-top : 0;
+    padding-bottom: 0;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+form small a{
+    text-decoration: none;
+}
+
+form small a:hover{
+    color: var(--color--text--dark);
+    text-decoration: underline;
+}
+
+.form-inline{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.form-inline .form-control{
+    width: 150px;
+    margin-right : 1rem;
+}
+
+.form-inline .form-control:not(:last-of-type){
+    margin-left: 1rem;
+}
+
+/* .form-part-bottom .form-control{
+    width: 50%;
+} */
+
+
+
+/******** Farmulaire ajout de livre **********/
+
+#books{
+    background-color: var(--color--theme--light);
+    border: none;
+}
+
+
+#book_title,
+#book_author,
+#book_synopsis,
+#book_publication_date,
+#book_isbn,
+#book_language,
+#book_publisher{
+    border: none;
+}
+
+#book_isbn,
+#book_genre,
+#book_publication_date,
+#book_language,
+#book_publisher{
+    max-width: 250px;
+}
+
+
+#book_title{
+    word-break: break-all;
+}
+
+#book_publisher{
+    margin-right : 1rem;
+}
+
+
+
+
+#book_synopsis{
+    min-height: 200px;
+}
+.article-header__right{
+    margin: 0 auto;
+}
+.article-subheader{
+    margin-top: 1rem;
+}
+
+.article-header__right label,
+.article-bottom label,
+.article-subheader__left label,
+.article-subheader__right label{
+    margin-top: 1rem;
+}
+

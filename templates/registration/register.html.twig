@@ -1,0 +1,146 @@
+{% extends 'homebase.html.twig' %}
+
+{% block title %}
+	Amour Livre - Inscription
+{% endblock %}
+
+{% block body %}
+	{% for flashError in app.flashes('verify_email_error') %}
+		<div class="alert alert-danger" role="alert">
+			{{ flashError }}
+		</div>
+	{% endfor %}
+	<section class="w--900 p--2 bck--alt br--15" id="registration">
+		<h1 class="text-center text-color-dark">
+			Inscription
+		</h1>
+
+		<p class="text-color-dark fw--b ml--1">
+			*Obligatoire
+		</p>
+
+		{{ form_start(registrationForm) }}
+
+		<div class="form-container fd--mob-c d--flex">
+			<div class="form-left w--mob-100 w--50 text-color-light">
+				{{
+          form_row(
+            registrationForm.nickname,
+            {
+              label: 'Pseudonyme*'
+            }
+          )
+        }}
+				<small class="ml--1 m--top-1 text-color-dark">Ex: John Doe</small>
+
+				{{
+          form_row(
+            registrationForm.birthdate,
+            {
+              label: 'Date de naissance*'
+            }
+          )
+        }}
+
+				{{
+          form_row(
+            registrationForm.email,
+            {
+              label: 'Email*'
+            }
+          )
+        }}
+				<small class="ml--1 text-color-dark">Ex: johndoe@mailer.com</small>
+				{{
+          form_row(
+            registrationForm.plainPassword,
+            {
+              label: 'Mot de Passe*'
+            }
+          )
+        }}
+				<small class="ml--1 text-color-dark">8 caractères minimum</small>
+				<!-- <small class="d--inlblc ml--1 m--top-05 text-color-dark ">Force:</small>
+								        <meter  max="5" id="password-strength-meter"></meter>
+								        <span class="d--inlblc strength-text m--top-05 text-color-dark"></span>
+								        <ul class="ml--1 m--top-05 text-color-dark" id="password-strength-text"></ul> -->
+			</div>
+
+			<div class="form-right w--mob-100 w--50">
+				{{
+          form_row(
+            registrationForm.address,
+            {
+              label: 'Adresse*',
+              'attr': {'autocomplete': 'off'} 
+              
+            }
+          )
+        }}
+				<small class="ml--1 text-color-dark">Ex: 8 Allée Léon Gambetta</small>
+				{{
+          form_row(
+            registrationForm.postal_code,
+            {
+              label: 'Code Postal*'
+            }
+          )
+        }}
+				<small class="ml--1 text-color-dark">Ex: 13001</small>
+				{{
+          form_row(
+            registrationForm.city,
+            {
+              label: 'Ville*'
+            }
+          )
+        }}
+				<small class="ml--1 text-color-dark">Ex: Marseille</small>
+				<div class="form-part-bottom  fd--mob-c d--flex-nowrap w--100">
+					{{
+          form_row(
+            registrationForm.gender,
+            {
+              label: 'Je suis*'
+            }
+          )
+        }}
+
+					{{
+          form_row(
+            registrationForm.preference,
+            {
+              label: 'Intéressé par'
+            }
+          )
+        }}
+				</div>
+			</div>
+
+
+			<div>
+				<p class="mtl--2">En cochant la case ci-dessous, vous acceptez nos
+					<a class="mdp-forgot fw--b text-color-dark" href="{{path('cgu')}}">Conditions d'Utilisation</a>
+				</p>
+				{{ form_row(
+          registrationForm.agreeTerms,
+          {
+            label: 'Accepter les conditions'
+          }
+        )
+      }}
+      </div>
+			<div class="form-footer d--flex jc--c m--top-1 w--100">
+				<button type="submit" class="btn btn-primary btn-signin m--top-1 w--300">
+					Inscription
+				</button>
+			</div>
+		</div>
+		{{ form_end(registrationForm) }}
+	</section>
+
+{% endblock %}
+{% block javascripts %}
+	<script src="{{asset('assets/js/registration.js')}}"></script>
+	<script src="{{asset('assets/js/algolia.js')}}"></script>
+{% endblock %}

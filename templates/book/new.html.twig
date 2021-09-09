@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Amour Livre - New Book{% endblock %}
+
+{% block body %}
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success m--2">
+        {{ message }}
+        </div>
+    {% endfor %}
+    {% for message in app.flashes('error') %}
+        <div class="alert alert-danger m--2">
+        {{ message }}
+        </div>
+    {% endfor %}
+    <section class="w--900 m--1 bck--alt br--15">
+
+    <h1 class="text-center text-color-dark fw--b fsize-3 mb--1"> Rechercher un livre</h1>
+
+    <div class="searchfield">
+
+        <div class="form-group">
+
+            <form action="#" method="POST" class="search-book">
+                <label>
+                    Saisissez le titre ou l'auteur ou l'ISBN du livre que vous recherchez :
+                </label>
+
+                <input id="books" type="text">
+                </input>
+
+                <button class="btn btn-primary w--300 mx--auto-top-2"> Rechercher
+                </button>
+            </form>
+        </div>
+    </div>
+
+</section>
+
+<section class="w--100 m--1 d--none searchbook-result-section" id="section-transparent">
+
+<div id="result" class="d--flex fd--c ai--c">
+
+</div>
+
+</section>
+
+
+<template id="form-template">
+
+
+
+{{ include('book/_form.html.twig') }}
+
+
+
+</template>
+
+{% endblock %}
+
+{% block javascripts %}
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+			<script src="{{asset('assets/js/booksearch.js')}}"></script>
+{% endblock %}

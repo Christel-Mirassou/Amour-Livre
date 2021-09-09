@@ -1,0 +1,30 @@
+.p--fixed{
+    position: fixed;
+}
+.p--absolute{
+    position: absolute;
+}
+.p--relative{
+    position: relative;
+}
+
+.top--1{
+    top:1rem;
+}
+
+.right--1{
+    right: 1rem;
+}
+
+.zi--50{
+    z-index: 150;
+}
+
+@media (max-width: 992px){
+
+    .p--mob--relative{
+        position: relative;
+    }
+
+
+}

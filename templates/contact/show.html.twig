@@ -1,0 +1,42 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}Amour Livre - Contact
+{% endblock %}
+
+{% block body %}
+	<section class="section-admin w--900 p--2 bck--admin br--15 pb--1">
+		<h1 class="text-center text-color-dark fw--b fsize-3 mb--1">Contact</h1>
+
+		<table class="table">
+			<tbody>
+				<tr>
+					<th class="text-color-dark">Id</th>
+					<td>{{ contact.id }}</td>
+				</tr>
+				<tr>
+					<th class="text-color-dark">Nom</th>
+					<td>{{ contact.nom }}</td>
+				</tr>
+				<tr>
+					<th class="text-color-dark">Email</th>
+					<td>{{ contact.email }}</td>
+				</tr>
+				<tr>
+					<th class="text-color-dark">Message</th>
+					<td>{{ contact.message }}</td>
+				</tr>
+				<tr>
+					<th class="text-color-dark">DateMessage</th>
+					<td>{{ contact.dateMessage ? contact.dateMessage|date('Y-m-d H:i:s') : '' }}</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div class="d--flex jc--sa">
+			<a id="section-admin__div" class="btn btn-secondary w--mob-70 w--200 m--1 text-center" href="{{ path('contact_index') }}">retour liste</a>
+			{{ include('contact/_delete_form.html.twig') }}
+		</div>
+	</section>
+
+
+{% endblock %}
