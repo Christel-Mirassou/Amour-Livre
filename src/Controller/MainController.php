@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Book;
 use App\Entity\User;
 use App\Entity\Genre;
 use App\Entity\Contact;
@@ -37,14 +38,16 @@ class MainController extends AbstractController
     /**
      * @Route("membre/profil/{id}", name="profil")
      */
-    public function profil(User $user): Response
+    public function profil(User $user, Book $book): Response
     {
-
-
+        // On calcul l'age de l'utilisateur puis on le set dans la variable $userAge
         $userAge = $user->calculerAge($user->getBirthdate());
-        dump($userAge);
-
         $user->setAge($userAge);
+
+        // On récupère tous les livre de l'utilisateur
+        $books = $user->getBooks();
+        // On récupère les genres
+        $genres = $book->getGenre();
 
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->persist($user);
@@ -52,7 +55,8 @@ class MainController extends AbstractController
 
         return $this->render('user/show.html.twig', [
             'user' => $user,
-            'books' => $user->getBooks()
+            'books' => $books,
+            'genres' => $genres
         ]);
     }
 

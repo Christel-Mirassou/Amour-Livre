@@ -87,7 +87,12 @@
 			<div class="books-container d--flex jc--sa">
 				<div class="row">
 					{% for book in books %}
-						<a class="d-block col-4" href="{{path('book_show', {id: book.id})}}"><img src="{{ book.thumbnail }}" class="d-block w-50 mx--auto-top-1" alt="..."/></a>
+						<h3 class="fw--b">Genre :
+							<span class="text-color-primary fs-i">{{book.genre.name}}</span>
+						</h3>
+
+						<a class="d-block col-4" href="{{path('book_show', {id: book.id})}}"><img src="{{ book.thumbnail }}" class="d-block w-50 mx--auto-top-1" alt="Couverture du livre: {{ book.title }}"/></a>
+
 					{% endfor %}
 				</div>
 
